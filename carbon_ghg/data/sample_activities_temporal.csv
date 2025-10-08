@@ -1,0 +1,33 @@
+entity_id,scope,category,activity_value,activity_unit,geography,year,month,facility,description
+factory_A,1,stationary_combustion,500,liters,GBR,2024,1,Plant_1,Diesel for backup generator
+factory_A,1,mobile_combustion,1200,liters,GBR,2024,1,Plant_1,Company vehicles fuel
+factory_A,2,purchased_electricity,25000,kWh,GBR,2024,1,Plant_1,Monthly electricity consumption
+factory_A,1,stationary_combustion,480,liters,GBR,2024,2,Plant_1,Diesel for backup generator
+factory_A,1,mobile_combustion,1150,liters,GBR,2024,2,Plant_1,Company vehicles fuel
+factory_A,2,purchased_electricity,24000,kWh,GBR,2024,2,Plant_1,Monthly electricity consumption
+factory_A,1,stationary_combustion,520,liters,GBR,2024,3,Plant_1,Diesel for backup generator
+factory_A,1,mobile_combustion,1300,liters,GBR,2024,3,Plant_1,Company vehicles fuel
+factory_A,2,purchased_electricity,26000,kWh,GBR,2024,3,Plant_1,Monthly electricity consumption
+factory_A,1,stationary_combustion,450,liters,GBR,2024,4,Plant_1,Diesel for backup generator
+factory_A,1,mobile_combustion,1100,liters,GBR,2024,4,Plant_1,Company vehicles fuel
+factory_A,2,purchased_electricity,23000,kWh,GBR,2024,4,Plant_1,Monthly electricity consumption
+office_B,1,stationary_combustion,1500,m³,USA,2024,1,HQ,Natural gas for heating
+office_B,2,purchased_electricity,10000,kWh,USA,2024,1,HQ,Office electricity
+office_B,3,employee_commuting,2000,km,USA,2024,1,HQ,Employee daily commute average
+office_B,1,stationary_combustion,1800,m³,USA,2024,2,HQ,Natural gas for heating
+office_B,2,purchased_electricity,10500,kWh,USA,2024,2,HQ,Office electricity
+office_B,3,employee_commuting,2100,km,USA,2024,2,HQ,Employee daily commute average
+office_B,1,stationary_combustion,1200,m³,USA,2024,3,HQ,Natural gas for heating
+office_B,2,purchased_electricity,9500,kWh,USA,2024,3,HQ,Office electricity
+office_B,3,employee_commuting,1950,km,USA,2024,3,HQ,Employee daily commute average
+office_B,1,stationary_combustion,800,m³,USA,2024,4,HQ,Natural gas for heating
+office_B,2,purchased_electricity,9000,kWh,USA,2024,4,HQ,Office electricity
+office_B,3,employee_commuting,1900,km,USA,2024,4,HQ,Employee daily commute average
+warehouse_C,1,mobile_combustion,800,liters,GBR,2024,1,Warehouse_North,Forklift diesel
+warehouse_C,2,purchased_electricity,15000,kWh,GBR,2024,1,Warehouse_North,Lighting and HVAC
+warehouse_C,1,mobile_combustion,750,liters,GBR,2024,2,Warehouse_North,Forklift diesel
+warehouse_C,2,purchased_electricity,14500,kWh,GBR,2024,2,Warehouse_North,Lighting and HVAC
+warehouse_C,1,mobile_combustion,820,liters,GBR,2024,3,Warehouse_North,Forklift diesel
+warehouse_C,2,purchased_electricity,15500,kWh,GBR,2024,3,Warehouse_North,Lighting and HVAC
+warehouse_C,1,mobile_combustion,780,liters,GBR,2024,4,Warehouse_North,Forklift diesel
+warehouse_C,2,purchased_electricity,14800,kWh,GBR,2024,4,Warehouse_North,Lighting and HVAC

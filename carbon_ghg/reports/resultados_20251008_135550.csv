@@ -1,0 +1,6 @@
+﻿Fecha_Calculo,Entidad,Scope,Categoría,Actividad_Valor,Actividad_Unidad,Factor_Valor,Factor_Unidad,Emisión_kgCO2e,Emisión_tCO2e,Fuente_Factor
+2025-10-08,factory_A,1,Stationary Combustion,500.0,liters,1.0,kg CO2e / liters,500.0,0.5,DEMO
+2025-10-08,factory_A,1,Mobile Combustion,1200.0,liters,1.0,kg CO2e / liters,1200.0,1.2,DEMO
+2025-10-08,factory_A,2,Purchased Electricity,25000.0,kWh,1.0,kg CO2e / kWh,25000.0,25.0,DEMO
+2025-10-08,factory_A,3,Business Travel,5000.0,km,1.0,kg CO2e / km,5000.0,5.0,DEMO
+2025-10-08,factory_A,3,Waste Generated,500.0,kg,1.0,kg CO2e / kg,500.0,0.5,DEMO

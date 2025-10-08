@@ -1,0 +1,25 @@
+entity_id,scope,category,activity_value,activity_unit,geography,year,month,facility,description
+factory_A,1,stationary_combustion,500,liters,GBR,2024,1,Plant_1,Diesel for backup generator
+factory_A,1,mobile_combustion,1200,liters,GBR,2024,1,Plant_1,Company vehicles fuel
+factory_A,2,purchased_electricity,25000,kWh,GBR,2024,1,Plant_1,Monthly electricity consumption
+factory_A,3,business_travel,5000,km,GBR,2024,1,Plant_1,Employee flights and car rentals
+factory_A,3,waste_generated,500,kg,GBR,2024,1,Plant_1,Industrial waste disposal
+office_B,1,stationary_combustion,1500,m³,USA,2024,1,HQ,Natural gas for heating
+office_B,2,purchased_electricity,10000,kWh,USA,2024,1,HQ,Office electricity
+office_B,3,employee_commuting,2000,km,USA,2024,1,HQ,Employee daily commute average
+office_B,3,business_travel,8000,km,USA,2024,1,HQ,Business flights
+warehouse_C,1,mobile_combustion,800,liters,GBR,2024,1,Warehouse_North,Forklift diesel
+warehouse_C,2,purchased_electricity,15000,kWh,GBR,2024,1,Warehouse_North,Lighting and HVAC
+warehouse_C,3,upstream_transportation,10000,tonne.km,GBR,2024,1,Warehouse_North,Inbound freight
+municipality_D,1,stationary_combustion,50000,m³,GBR,2024,1,City_Center,Natural gas municipal buildings
+municipality_D,1,mobile_combustion,10000,liters,GBR,2024,1,City_Center,Municipal vehicle fleet
+municipality_D,2,purchased_electricity,500000,kWh,GBR,2024,1,City_Center,Street lighting and public buildings
+municipality_D,3,waste_generated,100000,kg,GBR,2024,1,City_Center,Municipal waste collection
+municipality_D,3,employee_commuting,50000,km,GBR,2024,1,City_Center,Public sector employees
+project_E,1,fugitive_emissions,10,kg,USA,2024,1,Construction_Site,Refrigerant leaks from AC
+project_E,1,mobile_combustion,2000,liters,USA,2024,1,Construction_Site,Construction equipment diesel
+project_E,3,purchased_goods_services,100000,USD,USA,2024,1,Construction_Site,Materials and services
+hotel_F,1,stationary_combustion,3000,liters,GBR,2024,1,Hotel_Main,Heating oil
+hotel_F,2,purchased_electricity,20000,kWh,GBR,2024,1,Hotel_Main,Hotel operations
+hotel_F,3,business_travel,1500,km,GBR,2024,1,Hotel_Main,Staff training travel
+hotel_F,3,waste_generated,800,kg,GBR,2024,1,Hotel_Main,Guest and kitchen waste

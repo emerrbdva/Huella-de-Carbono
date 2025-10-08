@@ -1,0 +1,28 @@
+# Core dependencies
+pandas>=2.0.0
+pydantic>=2.0.0
+numpy>=1.24.0
+
+# Web UI
+streamlit>=1.28.0
+
+# Data processing
+openpyxl>=3.1.0
+xlrd>=2.0.0
+
+# Visualization
+plotly>=5.17.0
+matplotlib>=3.7.0
+
+# Report generation
+python-docx>=1.1.0
+fpdf2>=2.7.0
+jinja2>=3.1.0
+
+# AI local (optional - requires Ollama installed)
+langchain>=0.1.0
+langchain-community>=0.0.10
+
+# Utilities
+pint>=0.22  # Unit conversion
+pyyaml>=6.0

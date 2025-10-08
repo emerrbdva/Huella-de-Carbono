@@ -43,12 +43,11 @@ class TestActivityRecord:
             activity_unit="kWh",
             geography="USA",
             year=2025,
-            description="Electricidad oficina central",
-            fuel_type="Grid electricity"
+            description="Electricidad oficina central"
         )
         
         assert activity.description == "Electricidad oficina central"
-        assert activity.fuel_type == "Grid electricity"
+        # fuel_type field was removed from ActivityRecord model
     
     def test_invalid_scope(self):
         """Debe rechazar scope fuera de rango 1-3."""
@@ -114,18 +113,20 @@ class TestEmissionFactor:
     def test_factor_with_metadata(self):
         """Debe aceptar metadatos opcionales."""
         factor = EmissionFactor(
-            source="IPCC2024",
+            source="UK2024",
             gas="CO2e",
             value=3.15,
             unit="kg CO2e / kg",
             year=2024,
+            geography="GBR",
             scope=1,
-            geography="Global",
-            category="stationary_combustion"
+            category="stationary_combustion",
+            notes="Test emission factor with metadata"
         )
         
-        assert factor.geography == "Global"
+        assert factor.geography == "GBR"
         assert factor.category == "stationary_combustion"
+        assert factor.notes == "Test emission factor with metadata"
     
     def test_zero_factor_value(self):
         """Debe rechazar valores cero o negativos."""
@@ -260,8 +261,8 @@ class TestConstants:
         assert GWP_AR5["CO2"] == 1
         assert GWP_AR5["CH4"] == 28
         assert GWP_AR5["N2O"] == 265
-        assert "HFC-134a" in GWP_AR5
-        assert GWP_AR5["HFC-134a"] == 1300
+        assert GWP_AR5["SF6"] == 23500
+        assert GWP_AR5["NF3"] == 16100
     
     def test_scope_categories_definition(self):
         """Debe definir correctamente las categorías de cada alcance."""

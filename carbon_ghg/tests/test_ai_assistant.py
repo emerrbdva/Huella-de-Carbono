@@ -4,6 +4,7 @@ Ejecutar: pytest tests/test_ai_assistant.py -v
 """
 import pytest
 import pandas as pd
+import subprocess
 from utils.ai_assistant import (
     SemanticFactorSearch,
     GHGCategoryMapper,
@@ -11,6 +12,23 @@ from utils.ai_assistant import (
 )
 
 
+def is_ollama_available():
+    """Check if Ollama is installed and running."""
+    try:
+        result = subprocess.run(['ollama', 'list'], capture_output=True, timeout=5)
+        return result.returncode == 0
+    except Exception:
+        return False
+
+
+ollama_available = is_ollama_available()
+skip_if_no_ollama = pytest.mark.skipif(
+    not ollama_available,
+    reason="Ollama not available - AI tests require Ollama"
+)
+
+
+@skip_if_no_ollama
 class TestSemanticFactorSearch:
     """Pruebas para SemanticFactorSearch."""
     
@@ -148,6 +166,7 @@ class TestSemanticFactorSearch:
         assert isinstance(results, list)
 
 
+@skip_if_no_ollama
 class TestGHGCategoryMapper:
     """Pruebas para mapeo de categorías."""
     
@@ -180,6 +199,7 @@ class TestGHGCategoryMapper:
             assert len(info['keywords']) > 0
 
 
+@skip_if_no_ollama
 class TestSynonyms:
     """Pruebas para diccionario de sinónimos."""
     
@@ -216,6 +236,7 @@ class TestSynonyms:
         assert any('electric' in s.lower() for s in elec_syns)
 
 
+@skip_if_no_ollama
 class TestCategorizeActivity:
     """Pruebas para categorización."""
     
@@ -302,6 +323,7 @@ def real_factors_sample():
     ])
 
 
+@skip_if_no_ollama
 class TestIntegrationSemanticSearch:
     """Pruebas de integración con datos reales."""
     

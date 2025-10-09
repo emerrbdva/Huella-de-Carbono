@@ -47,6 +47,29 @@ class FactorMatch:
     match_score: float
     category: str
     geography: Optional[str] = None
+    
+    # Atributos adicionales para compatibilidad con tests
+    activity: str = ""
+    fuel: str = ""
+    sheet: str = ""
+    
+    def __post_init__(self):
+        # Alias para compatibilidad
+        if not self.sheet:
+            self.sheet = self.category
+        if not self.activity and self.factor_name:
+            # Extraer activity del factor_name
+            parts = self.factor_name.split(' - ')
+            if len(parts) >= 2:
+                self.activity = parts[0]
+                self.fuel = parts[1]
+            else:
+                self.activity = self.factor_name
+    
+    @property
+    def relevance_score(self):
+        """Alias para match_score para compatibilidad con tests."""
+        return self.match_score
 
 
 class GHGCategoryMapper:
@@ -56,6 +79,50 @@ class GHGCategoryMapper:
     Usa Ollama con llama3.2 para categorización inteligente
     de actividades en lenguaje natural.
     """
+    
+    # Mapeo de categorías con scopes y keywords para fallback
+    CATEGORY_MAP = {
+        'stationary_combustion': {
+            'scope': 1,
+            'keywords': ['diesel', 'gasolina', 'combustible', 'caldera', 'generador', 'fijo', 'estacionario']
+        },
+        'mobile_combustion': {
+            'scope': 1,
+            'keywords': ['vehículo', 'camión', 'auto', 'tractor', 'móvil', 'transporte propio']
+        },
+        'fugitive_emissions': {
+            'scope': 1,
+            'keywords': ['refrigerante', 'fuga', 'aire acondicionado', 'r-410a', 'r-134a']
+        },
+        'purchased_electricity': {
+            'scope': 2,
+            'keywords': ['electricidad', 'energía eléctrica', 'kwh', 'power']
+        },
+        'purchased_heat_steam': {
+            'scope': 2,
+            'keywords': ['calor', 'vapor', 'heating', 'steam']
+        },
+        'business_travel': {
+            'scope': 3,
+            'keywords': ['vuelo', 'viaje', 'hotel', 'avión', 'negocios']
+        },
+        'employee_commuting': {
+            'scope': 3,
+            'keywords': ['commuting', 'empleado', 'transporte personal', 'casa trabajo']
+        },
+        'upstream_transportation': {
+            'scope': 3,
+            'keywords': ['transporte', 'flete', 'freight', 'envío', 'logística']
+        },
+        'waste_generated': {
+            'scope': 3,
+            'keywords': ['residuo', 'basura', 'desecho', 'waste']
+        },
+        'purchased_goods': {
+            'scope': 3,
+            'keywords': ['compra', 'insumo', 'materia prima', 'bienes']
+        }
+    }
     
     def __init__(self, model: str = DEFAULT_MODEL, api_url: str = OLLAMA_API_URL):
         self.model = model
@@ -424,6 +491,10 @@ class SemanticFactorSearch:
             >>> for r in results:
             >>>     print(f"{r.factor_name}: {r.value} {r.unit}")
         """
+        # Manejar consulta vacía
+        if not query or not query.strip():
+            return []
+        
         # Verificar cache
         cache_key = f"{query}_{top_k}_{category_hint}"
         if cache_key in self._search_cache:
@@ -476,7 +547,10 @@ class SemanticFactorSearch:
                     year=2025,
                     match_score=score,
                     category=item['sheet'],
-                    geography='GBR'
+                    geography='GBR',
+                    activity=item['activity'],
+                    fuel=item['fuel'],
+                    sheet=item['sheet']
                 )
                 matches.append(match)
         
